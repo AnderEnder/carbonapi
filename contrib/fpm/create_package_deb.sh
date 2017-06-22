@@ -35,6 +35,10 @@ else
        cp ./contrib/deb/carbonapi.conf "${TMPDIR}"/etc/init/
 fi
 
+if [ "$WORKSPACE" ]; then
+    cd $WORKSPACE
+fi
+
 fpm -s dir -t deb -n carbonapi -v ${VERSION} -C ${TMPDIR} \
     -p carbonapi_VERSION_ARCH.deb \
     -d "libcairo2 > 1.11" \
@@ -44,6 +48,6 @@ fpm -s dir -t deb -n carbonapi -v ${VERSION} -C ${TMPDIR} \
     --license MIT \
     --url "https://github.com/go-graphite/" \
     "${@}" \
-    etc usr/bin usr/share || die 1 "Can't create package!"
+    etc usr/bin usr/share /var/log || die 1 "Can't create package!"
 
 die 0 "Success"
