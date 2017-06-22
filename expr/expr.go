@@ -14,9 +14,9 @@ import (
 	"time"
 
 	"github.com/JaderDias/movingmedian"
-	pb "github.com/go-graphite/carbonzipper/carbonzipperpb3"
 	"github.com/dgryski/go-onlinestats"
 	"github.com/dustin/go-humanize"
+	pb "github.com/go-graphite/carbonzipper/carbonzipperpb3"
 	"github.com/gonum/matrix/mat64"
 	"github.com/mjibson/go-dsp/fft"
 	"github.com/wangjohn/quickselect"
@@ -258,6 +258,7 @@ func isNameChar(r byte) bool {
 		'A' <= r && r <= 'Z' ||
 		'0' <= r && r <= '9' ||
 		r == '.' || r == '_' || r == '-' || r == '*' || r == '?' || r == ':' ||
+		r == '@' ||
 		r == '[' || r == ']' ||
 		r == '^' || r == '$' ||
 		r == '<' || r == '>'
