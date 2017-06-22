@@ -24,6 +24,8 @@ dep:
 install:
 	mkdir -p $(DESTDIR)/usr/bin/
 	mkdir -p $(DESTDIR)/usr/share/carbonapi/
+	mkdir -p $(DESTDIR)/var/log/carbonapi/
+	mkdir -p $(DESTDIR)/etc/carbonapi
 	cp ./carbonapi $(DESTDIR)/usr/bin/
 	cp ./carbonapi.example.yaml $(DESTDIR)/usr/share/carbonapi/
 
